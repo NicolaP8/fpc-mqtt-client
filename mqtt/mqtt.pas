@@ -702,7 +702,7 @@ begin
 
       except
         on E: Exception do begin
-          writeln('read raised error');
+          //@@@ writeln('read raised error');
           Client.Debug('%s: %s', [E.ClassName, E.Message]);
           Client.Disconnect;
         end;

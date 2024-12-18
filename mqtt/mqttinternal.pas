@@ -369,7 +369,8 @@ begin
 
     // begin payload
     SetLength(Message, Size - Position);
-    ReadBuffer(Message[1], Size - Position);
+    if Size - Position > 0 then //nicola
+      ReadBuffer(Message[1], Size - Position);
     // end payload
   end;
 end;
@@ -738,7 +739,8 @@ begin
     // end props
 
     // begin payload
-    WriteBuffer(Message[1], Length(Message)); //                  (Ch. 3.3.3)
+    if Length(Message) > 0 then //Nicola
+      WriteBuffer(Message[1], Length(Message)); //                  (Ch. 3.3.3)
     // end payload
   end;
 
